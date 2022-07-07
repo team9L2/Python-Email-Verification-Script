@@ -14,7 +14,7 @@ addressToVerify = str(inputAddress)
 
 # Syntax check
 match = re.match(regex, addressToVerify)
-if match == None:
+if match is None:
 	print('Bad Syntax')
 	raise ValueError('Bad Syntax')
 
@@ -37,7 +37,7 @@ server.set_debuglevel(0)
 server.connect(mxRecord)
 server.helo(server.local_hostname) ### server.local_hostname(Get local server hostname)
 server.mail(fromAddress)
-code, message = server.rcpt(str(addressToVerify))
+code, message = server.rcpt(addressToVerify)
 server.quit()
 
 #print(code)
